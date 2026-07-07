@@ -18,7 +18,7 @@ Este comando irá:
 ```bash
 git add docs/
 git commit -m "build: adiciona arquivos compilados para GitHub Pages"
-git push origin feat/lp-test
+git push origin publish
 ```
 
 ### 3. Configurar o GitHub Pages no repositório
@@ -27,7 +27,7 @@ git push origin feat/lp-test
 2. Vá em **Settings** > **Pages**
 3. Em **Source**, selecione **Deploy from a branch**
 4. Em **Branch**, selecione:
-   - Branch: `feat/lp-test` (ou `main` após merge)
+   - Branch: `publish`
    - Folder: `/docs`
 5. Clique em **Save**
 
