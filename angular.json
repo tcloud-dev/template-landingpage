@@ -56,7 +56,10 @@
               "sourceMap": true
             },
             "github-pages": {
-              "outputPath": "docs",
+              "outputPath": {
+                "base": "docs",
+                "browser": ""
+              },
               "outputMode": "static",
               "optimization": true,
               "sourceMap": false,
