@@ -2,6 +2,23 @@
 
 ## Passo a passo rápido
 
+### 0. **IMPORTANTE**: Preparar a branch publish
+
+⚠️ **Você DEVE estar na branch `publish` antes de fazer o deploy!**
+
+```bash
+# Verificar em qual branch você está
+git branch
+
+# Mudar para a branch publish
+git checkout publish
+
+# Atualizar com as mudanças da branch principal
+git merge main
+# OU, se estiver trabalhando em uma feature específica:
+# git merge feat/sua-feature
+```
+
 ### 1. Fazer o build da aplicação
 
 ```bash
@@ -44,13 +61,22 @@ https://[seu-usuario].github.io/template-landingpage/
 
 Sempre que fizer mudanças no código:
 
-1. Faça as alterações necessárias
-2. Execute: `npm run build:github-pages`
-3. Commit e push: 
+1. Faça as alterações necessárias nas suas branches de desenvolvimento
+2. Mescle as mudanças na `main` (quando estiverem prontas)
+3. Vá para a branch `publish`:
+   ```bash
+   git checkout publish
+   git merge main
+   ```
+4. Execute o build: 
+   ```bash
+   npm run build:github-pages
+   ```
+5. Commit e push: 
    ```bash
    git add docs/
    git commit -m "build: atualiza build do GitHub Pages"
-   git push
+   git push origin publish
    ```
 
 O GitHub Pages irá automaticamente fazer o redeploy.
@@ -64,6 +90,10 @@ Se o nome do repositório for diferente, atualize o `base-href` no script `build
 ```
 
 ## Troubleshooting
+
+### Comando git add ou git commit não funciona
+- **Verifique se você está na branch `publish`**: Use `git branch` para verificar. Se não estiver, use `git checkout publish`
+- **Certifique-se de fazer o merge antes**: A branch `publish` precisa ter todo o código atualizado antes do build
 
 ### Página em branco ou erro 404
 - Verifique se o `base-href` está correto no `package.json`
