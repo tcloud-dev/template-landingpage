@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>API — cx_form</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --surface: #ffffff;
+      --border: #d8e2ef;
+      --text: #0b1f33;
+      --muted: #5c6f82;
+      --accent: #00D1E8;
+      --accent-dark: #0090D0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      min-height: 100vh;
+    }
+    nav {
+      width: 300px;
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      height: 100vh;
+      overflow-y: auto;
+    }
+    nav h1 { font-size: 1rem; color: var(--accent-dark); margin-bottom: .25rem; }
+    nav .meta { font-size: .78rem; color: var(--muted); margin-bottom: 1rem; }
+    nav a {
+      display: block;
+      padding: .55rem .7rem;
+      color: var(--muted);
+      text-decoration: none;
+      border-radius: 8px;
+      margin-bottom: .2rem;
+      font-size: .82rem;
+      word-break: break-word;
+    }
+    nav a.active, nav a:hover { background: #e8f9fc; color: var(--text); }
+    main { margin-left: 300px; flex: 1; padding: 2rem; max-width: 980px; }
+    .panel { display: none; animation: fade .25s ease; }
+    .panel.active { display: block; }
+    @keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; } }
+    .hero { display: flex; align-items: center; gap: .75rem; margin-bottom: .5rem; }
+    .method {
+      color: #fff;
+      font-weight: 700;
+      font-size: .75rem;
+      padding: .25rem .55rem;
+      border-radius: 6px;
+    }
+    .path { font-size: 1rem; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem;
+    }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+    table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 12px; overflow: hidden; }
+    th, td { border-bottom: 1px solid var(--border); padding: .65rem .75rem; text-align: left; font-size: .85rem; }
+    th { background: #eef4fa; }
+    pre { background: #0b1f33; color: #e8edf4; padding: 1rem; border-radius: 10px; overflow-x: auto; font-size: .82rem; }
+    pre.json { white-space: pre-wrap; }
+    .wireframe { max-width: 100%; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 8px 24px rgba(11,31,51,.08); }
+    .muted { color: var(--muted); }
+    h2 { border-bottom: 3px solid var(--accent); padding-bottom: .35rem; }
+    h3 { margin-top: 0; }
+  </style>
+</head>
+<body>
+  <nav>
+    <h1>docT-Cloud API</h1>
+    <p class="meta">cx_form<br/>local (working tree)<br/>2 endpoints</p>
+    
+    <a href="#ep-0" data-target="ep-0">GET /cx-forms</a><a href="#ep-1" data-target="ep-1">POST /cx-forms</a>
+  </nav>
+  <main>
+    
+    
+<section id="ep-0" class="panel">
+  <div class="hero">
+    <span class="method" style="background:#00D1E8">GET</span>
+    <code class="path">/cx-forms</code>
+  </div>
+  <h3>Cx Form List</h3>
+  <p class="muted">Lambda `cx_form_list` — handler `cx_form_list.py`. Autenticação: Bearer JWT (Cognito).</p>
+  <div class="grid">
+    <div class="card">
+      <h4>Rota de acesso</h4>
+      <pre>GET /cx-forms</pre>
+      <h4>URL completa (exemplo)</h4>
+      <pre>GET https://api-service-hub.tcloud.cloudtotvs.com.br/dev/cx-forms</pre>
+      <h4>URL (template)</h4>
+      <pre>https://api-service-hub.tcloud.cloudtotvs.com.br/dev/cx-forms</pre>
+    </div>
+    <div class="card">
+      <h4>Autenticação</h4>
+      <p>Bearer JWT (Cognito)</p>
+      <p class="muted">Handler: <code>cx_form_list.py</code></p>
+    </div>
+  </div>
+  <h4>Parâmetros</h4>
+  <table>
+    <thead><tr><th>Origem</th><th>Nome</th><th>Tipo</th><th>Obrigatório</th><th>Descrição</th></tr></thead>
+    <tbody><tr><td colspan='5'>Sem parâmetros declarados</td></tr></tbody>
+  </table>
+  
+  <h4>Exemplo de resposta (200 OK)</h4>
+  <pre class="json">{
+  "success": true,
+  "data": {}
+}</pre>
+</section>
+
+<section id="ep-1" class="panel">
+  <div class="hero">
+    <span class="method" style="background:#4CAF50">POST</span>
+    <code class="path">/cx-forms</code>
+  </div>
+  <h3>Cx Form Create</h3>
+  <p class="muted">Lambda `cx_form_create` — handler `cx_form_create.py`. Autenticação: Bearer JWT (Cognito).</p>
+  <div class="grid">
+    <div class="card">
+      <h4>Rota de acesso</h4>
+      <pre>POST /cx-forms</pre>
+      <h4>URL completa (exemplo)</h4>
+      <pre>POST https://api-service-hub.tcloud.cloudtotvs.com.br/dev/cx-forms</pre>
+      <h4>URL (template)</h4>
+      <pre>https://api-service-hub.tcloud.cloudtotvs.com.br/dev/cx-forms</pre>
+    </div>
+    <div class="card">
+      <h4>Autenticação</h4>
+      <p>Bearer JWT (Cognito)</p>
+      <p class="muted">Handler: <code>cx_form_create.py</code></p>
+    </div>
+  </div>
+  <h4>Parâmetros</h4>
+  <table>
+    <thead><tr><th>Origem</th><th>Nome</th><th>Tipo</th><th>Obrigatório</th><th>Descrição</th></tr></thead>
+    <tbody><tr><td>Body</td><td><code>event_id</code></td><td>string</td><td>Sim</td><td>Campo `event_id` (string) — event_id.</td></tr><tr><td>Body</td><td><code>event_name</code></td><td>string</td><td>Sim</td><td>Campo `event_name` (string) — event_name.</td></tr><tr><td>Body</td><td><code>event_date</code></td><td>string</td><td>Sim</td><td>Campo `event_date` (string) — event_date.</td></tr><tr><td>Body</td><td><code>customer_name</code></td><td>string</td><td>Sim</td><td>Campo `customer_name` (string) — customer_name.</td></tr><tr><td>Body</td><td><code>cpf</code></td><td>string</td><td>Sim</td><td>Campo `cpf` (string) — cpf.</td></tr><tr><td>Body</td><td><code>company_name</code></td><td>string</td><td>Não</td><td>Campo `company_name` (string) — company_name.</td></tr><tr><td>Body</td><td><code>customer_email</code></td><td>string</td><td>Sim</td><td>Campo `customer_email` (string) — customer_email.</td></tr><tr><td>Body</td><td><code>phone_number</code></td><td>string</td><td>Sim</td><td>Campo `phone_number` (string) — phone_number.</td></tr></tbody>
+  </table>
+  
+  <h4>Body (JSON)</h4>
+  <pre class="json">{
+  "event_id": "exemplo",
+  "event_name": "exemplo",
+  "event_date": "exemplo",
+  "customer_name": "exemplo",
+  "cpf": "exemplo",
+  "company_name": "exemplo",
+  "customer_email": "exemplo",
+  "phone_number": "exemplo"
+}</pre>
+
+  <h4>Exemplo de resposta (200 OK)</h4>
+  <pre class="json">{
+  "success": true,
+  "data": {}
+}</pre>
+</section>
+
+  </main>
+  <script>
+    const links = document.querySelectorAll('nav a');
+    const panels = document.querySelectorAll('.panel');
+    function show(id) {
+      panels.forEach(p => p.classList.remove('active'));
+      links.forEach(l => l.classList.remove('active'));
+      const panel = document.getElementById(id);
+      const link = document.querySelector(`nav a[data-target="${id}"]`);
+      if (panel) panel.classList.add('active');
+      if (link) link.classList.add('active');
+    }
+    links.forEach(link => link.addEventListener('click', e => {
+      e.preventDefault();
+      show(link.dataset.target);
+    }));
+    show('ep-0');
+  </script>
+</body>
+</html>
