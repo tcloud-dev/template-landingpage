@@ -18,9 +18,8 @@ export class CxFormMockService {
    * @returns Observable<CxFormResponse>
    */
   createForm(data: CxFormRequest): Observable<CxFormResponse> {
-    console.log('🧪 [MOCK] Dados recebidos:', data);
+    console.log('🧪 [MOCK] Simulando envio de formulário...');
 
-    // Simular sucesso SEMPRE (sem validações extras)
     const mockResponse: CxFormResponse = {
       success: true,
       data: {
@@ -32,8 +31,6 @@ export class CxFormMockService {
       }
     };
 
-    console.log('✅ [MOCK] Resposta simulada:', mockResponse);
-
-    return of(mockResponse).pipe(delay(500)); // Simula latência de 500ms
+    return of(mockResponse).pipe(delay(1000)); // Simula latência de 1 segundo
   }
 }
