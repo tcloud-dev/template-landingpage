@@ -1,0 +1,14 @@
+{
+  "module": "cx_form",
+  "generated_at": "2026-07-14T14:19:12.614461",
+  "source": "local (working tree)",
+  "repository": "C:\\Users\\camila.raraujo\\PycharmProjects\\PythonProject\\t-cloud\\tcloud-documentation-exe\\backend\\Projects\\tcloud-service-hub",
+  "handlers": "todos do routes.yml",
+  "endpoint_count": 2,
+  "doc_scope": "dev",
+  "figma_requested_node_id": null,
+  "figma_node_id": null,
+  "figma_screen": null,
+  "figma_png": null,
+  "figma_full_screen": false
+}

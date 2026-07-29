@@ -1,12 +1,13 @@
-# Landing Page - Seminário de Tecnologia e Inovação
+# Template Landing Page Events
 
-Landing page desenvolvida em Angular 22 para divulgação de evento tecnológico.
+Modelo de Landing Page para Eventos desenvolvida em Angular 22.
 
 ## 🚀 Características
 
 - **Menu de Navegação**: Header fixo com links de navegação suave
 - **Hero Section**: Seção principal com título, subtítulo, informações do evento e CTA
 - **Cronograma**: Grade horária completa do evento (08h30 às 17h30)
+- **Palestrantes**: Seção com cards dos palestrantes, incluindo foto, cargo, bio e redes sociais
 - **FAQ**: Perguntas frequentes com accordion interativo
 - **Formulário de Inscrição**: Formulário completo com validação (nome, email, telefone, CPF, empresa, cargo, área, observação)
 - **Footer**: Informações de contato e redes sociais
@@ -15,7 +16,7 @@ Landing page desenvolvida em Angular 22 para divulgação de evento tecnológico
 
 ## 📋 Pré-requisitos
 
-- Node.js 18+
+- Node.js 24+
 - npm ou yarn
 - Angular CLI 22
 
@@ -47,6 +48,7 @@ src/app/
 │   ├── header/          # Menu de navegação
 │   ├── hero/            # Seção principal com CTA
 │   ├── schedule/        # Cronograma do evento
+│   ├── speakers/        # Palestrantes do evento
 │   ├── faq/             # Perguntas frequentes
 │   ├── registration-form/ # Formulário de inscrição
 │   └── footer/          # Rodapé
@@ -71,16 +73,36 @@ src/app/
 - CSS3
 - Reactive Forms
 
+## 📱 Componentes
+
+### Header
+
+Menu de navegação fixo com links de ancoragem para as seções da página.
+
+### Hero
+
+Seção principal com título, subtítulo, informações do evento (data, local, horário) e botão de CTA para inscrição.
+
+### Schedule
+
+Cronograma completo do evento com grade horária das 08h30 às 17h30, exibindo palestras, workshops e coffee breaks.
+
+### Speakers
+
+Seção de palestrantes com cards responsivos exibindo foto, nome, cargo, biografia e links para redes sociais (LinkedIn, Twitter, GitHub).
+
+### FAQ
+
+Seção de perguntas frequentes com accordion interativo para melhor experiência do usuário.
+
+### Registration Form
+
+Formulário de inscrição com validação de campos obrigatórios: nome, email, telefone, CPF, empresa, cargo, área de atuação e observações.
+
+### Footer
+
+Rodapé com informações de contato, redes sociais e links úteis.
+
 ---
 
 Desenvolvido com Angular CLI version 22.0.5
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

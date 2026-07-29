@@ -1,0 +1,188 @@
+{
+  "feature_name": "cx_form",
+  "module": "cx_form",
+  "source": "local (working tree)",
+  "endpoints": [
+    {
+      "name": "Cx Form List",
+      "method": "GET",
+      "path": "/cx-forms",
+      "api_url": "https://api-service-hub.tcloud.cloudtotvs.com.br/dev/cx-forms",
+      "handler": "cx_form_list.lambda_handler",
+      "handler_file": "cx_form_list.py",
+      "function_name": "cx_form_list",
+      "description": "Lambda `cx_form_list` — handler `cx_form_list.py`. Autenticação: Bearer JWT (Cognito).",
+      "path_params": [],
+      "query_params": [],
+      "request_payload": [],
+      "request_body_example": {},
+      "url_example": "GET https://api-service-hub.tcloud.cloudtotvs.com.br/dev/cx-forms",
+      "response_example": {
+        "success": true,
+        "data": {}
+      },
+      "error_example": {
+        "message": "Requisição inválida. Verifique os parâmetros ou o body."
+      },
+      "auth": "Bearer JWT (Cognito)",
+      "private": true,
+      "usage_hint": "",
+      "schema_class": "SchemaListCxForm",
+      "feature_id": "1073",
+      "services_used": [
+        "cx_form / cx_form"
+      ],
+      "implementation_steps": [
+        "Expõe `GET /cx-forms` como Lambda HTTP no API Gateway.",
+        "Valida entrada com schema Marshmallow `SchemaListCxForm` (`load_schema`).",
+        "Obtém dados do usuário autenticado a partir do token JWT.",
+        "Executa regra de negócio em `process(payload, user_info)`.",
+        "Retorna JSON com status 200 em caso de sucesso."
+      ],
+      "implementation_detail": "Handler `cx_form_list.py` implementa `GET /cx-forms` como API serverless no T-Cloud.\nFeature ID registrada no código: `1073`.\nContrato de entrada validado por `SchemaListCxForm` (Marshmallow).\nIntegrações e serviços: cx_form / cx_form.\nFluxo implementado:\n1. Expõe `GET /cx-forms` como Lambda HTTP no API Gateway.\n2. Valida entrada com schema Marshmallow `SchemaListCxForm` (`load_schema`).\n3. Obtém dados do usuário autenticado a partir do token JWT.\n4. Executa regra de negócio em `process(payload, user_info)`.\n5. Retorna JSON com status 200 em caso de sucesso.\nTratamento de erros e segurança:\n- Retorna HTTP 422 quando o payload não passa na validação Marshmallow.\n- Erros de negócio encapsulados em `ErrorApp` com código HTTP específico.\n- Exige usuário autenticado via token (email/perfil extraídos do evento).\n- Respostas padronizadas via helper `http_response`.",
+      "error_handling": [
+        "Retorna HTTP 422 quando o payload não passa na validação Marshmallow.",
+        "Erros de negócio encapsulados em `ErrorApp` com código HTTP específico.",
+        "Exige usuário autenticado via token (email/perfil extraídos do evento).",
+        "Respostas padronizadas via helper `http_response`."
+      ],
+      "frontend_integration": "Chame `GET /cx-forms` via service Angular do módulo, usando `HttpClient` com interceptors de autenticação T-Cloud. Tipar a resposta com interface derivada do exemplo JSON abaixo."
+    },
+    {
+      "name": "Cx Form Create",
+      "method": "POST",
+      "path": "/cx-forms",
+      "api_url": "https://api-service-hub.tcloud.cloudtotvs.com.br/dev/cx-forms",
+      "handler": "cx_form_create.lambda_handler",
+      "handler_file": "cx_form_create.py",
+      "function_name": "cx_form_create",
+      "description": "Lambda `cx_form_create` — handler `cx_form_create.py`. Autenticação: Bearer JWT (Cognito).",
+      "path_params": [],
+      "query_params": [],
+      "request_payload": [
+        {
+          "name": "event_id",
+          "type": "string",
+          "description": "Campo `event_id` (string) — event_id.",
+          "required": true
+        },
+        {
+          "name": "event_name",
+          "type": "string",
+          "description": "Campo `event_name` (string) — event_name.",
+          "required": true
+        },
+        {
+          "name": "event_date",
+          "type": "string",
+          "description": "Campo `event_date` (string) — event_date.",
+          "required": true
+        },
+        {
+          "name": "customer_name",
+          "type": "string",
+          "description": "Campo `customer_name` (string) — customer_name.",
+          "required": true
+        },
+        {
+          "name": "cpf",
+          "type": "string",
+          "description": "Campo `cpf` (string) — cpf.",
+          "required": true
+        },
+        {
+          "name": "company_name",
+          "type": "string",
+          "description": "Campo `company_name` (string) — company_name.",
+          "required": false
+        },
+        {
+          "name": "customer_email",
+          "type": "string",
+          "description": "Campo `customer_email` (string) — customer_email.",
+          "required": true
+        },
+        {
+          "name": "phone_number",
+          "type": "string",
+          "description": "Campo `phone_number` (string) — phone_number.",
+          "required": true
+        }
+      ],
+      "request_body_example": {
+        "event_id": "exemplo",
+        "event_name": "exemplo",
+        "event_date": "exemplo",
+        "customer_name": "exemplo",
+        "cpf": "exemplo",
+        "company_name": "exemplo",
+        "customer_email": "exemplo",
+        "phone_number": "exemplo"
+      },
+      "url_example": "POST https://api-service-hub.tcloud.cloudtotvs.com.br/dev/cx-forms",
+      "response_example": {
+        "success": true,
+        "data": {}
+      },
+      "error_example": {
+        "message": "Requisição inválida. Verifique os parâmetros ou o body."
+      },
+      "auth": "Bearer JWT (Cognito)",
+      "private": true,
+      "usage_hint": "",
+      "schema_class": "SchemaCreateCxForm",
+      "feature_id": "1073",
+      "services_used": [
+        "cx_form / cx_form"
+      ],
+      "implementation_steps": [
+        "Expõe `POST /cx-forms` como Lambda HTTP no API Gateway.",
+        "Valida entrada com schema Marshmallow `SchemaCreateCxForm` (`load_schema`).",
+        "Obtém dados do usuário autenticado a partir do token JWT.",
+        "Executa regra de negócio em `process(payload, user_info)`.",
+        "Retorna JSON com status 200 em caso de sucesso."
+      ],
+      "implementation_detail": "Handler `cx_form_create.py` implementa `POST /cx-forms` como API serverless no T-Cloud.\nFeature ID registrada no código: `1073`.\nContrato de entrada validado por `SchemaCreateCxForm` (Marshmallow).\nIntegrações e serviços: cx_form / cx_form.\nFluxo implementado:\n1. Expõe `POST /cx-forms` como Lambda HTTP no API Gateway.\n2. Valida entrada com schema Marshmallow `SchemaCreateCxForm` (`load_schema`).\n3. Obtém dados do usuário autenticado a partir do token JWT.\n4. Executa regra de negócio em `process(payload, user_info)`.\n5. Retorna JSON com status 200 em caso de sucesso.\nTratamento de erros e segurança:\n- Retorna HTTP 422 quando o payload não passa na validação Marshmallow.\n- Erros de negócio encapsulados em `ErrorApp` com código HTTP específico.\n- Exige usuário autenticado via token (email/perfil extraídos do evento).\n- Respostas padronizadas via helper `http_response`.",
+      "error_handling": [
+        "Retorna HTTP 422 quando o payload não passa na validação Marshmallow.",
+        "Erros de negócio encapsulados em `ErrorApp` com código HTTP específico.",
+        "Exige usuário autenticado via token (email/perfil extraídos do evento).",
+        "Respostas padronizadas via helper `http_response`."
+      ],
+      "frontend_integration": "Chame `POST /cx-forms` via service Angular do módulo, usando `HttpClient` com interceptors de autenticação T-Cloud. Tipar a resposta com interface derivada do exemplo JSON abaixo."
+    }
+  ],
+  "module_meta": {
+    "dev_title": "Documentação de desenvolvimento — cx_form",
+    "dev_summary": "Implementação do módulo serverless `cx_form` com 2 endpoint(s) HTTP (GET, POST), extraído de `routes.yml` e handlers Python. Fonte analisada: local (working tree).",
+    "frontend_title": "API para Frontend — cx_form",
+    "frontend_overview": "Esta documentação descreve os contratos de API do módulo `cx_form` para integração Angular/HTTP no T-Cloud. Base URL: `https://api-service-hub.tcloud.cloudtotvs.com.br/dev`.",
+    "auth_block": "Authorization: Bearer <cognito-token>\nx-api-key: <api-key>\nContent-Type: application/json\n# Autenticação declarada no routes.yml: Bearer JWT (Cognito)",
+    "integration_flows": [
+      {
+        "title": "GET /cx-forms",
+        "steps": [
+          "Disparar `GET /cx-forms` quando o usuário interagir com a funcionalidade relacionada.",
+          "Enviar parâmetros/body conforme tabela do endpoint.",
+          "Tratar resposta 200 e erros 4xx/5xx com feedback na UI."
+        ],
+        "hint": "Chame `GET /cx-forms` via service Angular do módulo, usando `HttpClient` com interceptors de autenticação T-Cloud. Tipar a resposta com interface derivada do exemplo JSON abaixo."
+      },
+      {
+        "title": "POST /cx-forms",
+        "steps": [
+          "Disparar `POST /cx-forms` quando o usuário interagir com a funcionalidade relacionada.",
+          "Enviar parâmetros/body conforme tabela do endpoint.",
+          "Tratar resposta 200 e erros 4xx/5xx com feedback na UI."
+        ],
+        "hint": "Chame `POST /cx-forms` via service Angular do módulo, usando `HttpClient` com interceptors de autenticação T-Cloud. Tipar a resposta com interface derivada do exemplo JSON abaixo."
+      }
+    ],
+    "angular_notes": "Utilize `HttpClient` com interceptors de autenticação T-Cloud. Tipar responses com interfaces geradas a partir dos exemplos JSON. Centralize URLs no service do módulo e reutilize handlers de erro.",
+    "implementation_notes": [
+      "Endpoint `GET /cx-forms`: Handler `cx_form_list.py` implementa `GET /cx-forms` como API serverless no T-Cloud.\nFeature ID registrada no código: `1…",
+      "Endpoint `POST /cx-forms`: Handler `cx_form_create.py` implementa `POST /cx-forms` como API serverless no T-Cloud.\nFeature ID registrada no código:…"
+    ]
+  },
+  "api_base_url": ""
+}
