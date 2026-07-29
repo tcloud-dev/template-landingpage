@@ -1,0 +1,42 @@
+<section id="reasons" class="reasons">
+  <div class="container">
+    <div class="reasons-header">
+      <span class="badge">MOTIVOS PARA IR</span>
+      <h2 class="section-title">Por que participar?</h2>
+      <p class="section-subtitle">Um dia inteiro dedicado a mostrar, na prática, como IA nativa e usabilidade mudam a forma de gerir sua empresa ou negócio.</p>
+    </div>
+
+    <div class="reasons-content">
+      <div class="reasons-list">
+        @for (reason of reasons; track $index) {
+          <div class="reason-card">
+            <div class="reason-icon">
+              @if (reason.icon === 'cloud') {
+                <img src="assets/images/ia-agent.svg" alt="IA Agent" width="48" height="48" />
+              }
+              @if (reason.icon === 'rocket') {
+                <img src="assets/images/net.svg" alt="Network" width="48" height="48" />
+              }
+              @if (reason.icon === 'star') {
+                <img src="assets/images/star.svg" alt="Star" width="48" height="48" />
+              }
+            </div>
+            <h3>{{ reason.title }}</h3>
+            <p>{{ reason.description }}</p>
+          </div>
+        }
+      </div>
+
+      <div class="networking-card">
+        <div class="card-overlay"></div>
+        <div class="card-content">
+          <div class="card-icon">
+            <img src="assets/images/network.svg" alt="Networking" width="48" height="48" />
+          </div>
+          <h3>Networking Executivo VIP</h3>
+          <p>Troque experiências reais com outros líderes de mercado durante os momentos de Welcome Coffee, Almoço Executivo VIP e Coquetel de encerramento.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
