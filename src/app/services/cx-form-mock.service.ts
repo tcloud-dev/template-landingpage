@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, delay, throwError } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
+import { delay } from 'rxjs/operators';
 import { CxFormRequest, CxFormResponse } from '../models/cx-form.model';
 
 /**
@@ -19,15 +20,7 @@ export class CxFormMockService {
   createForm(data: CxFormRequest): Observable<CxFormResponse> {
     console.log('🧪 [MOCK] Dados recebidos:', data);
 
-    // Simular validação de CPF inválido
-    if (data.cpf === '000.000.000-00' || data.cpf === '00000000000') {
-      return throwError(() => ({
-        error: { message: 'CPF inválido' },
-        status: 422
-      })).pipe(delay(500));
-    }
-
-    // Simular sucesso
+    // Simular sucesso SEMPRE (sem validações extras)
     const mockResponse: CxFormResponse = {
       success: true,
       data: {
@@ -41,32 +34,6 @@ export class CxFormMockService {
 
     console.log('✅ [MOCK] Resposta simulada:', mockResponse);
 
-    return of(mockResponse).pipe(delay(1000)); // Simula latência de rede
-  }
-
-  /**
-   * Simula listagem de formulários
-   * @returns Observable<CxFormResponse>
-   */
-  listForms(): Observable<CxFormResponse> {
-    const mockResponse: CxFormResponse = {
-      success: true,
-      data: [
-        {
-          id: 'abc123',
-          customer_name: 'João Silva',
-          customer_email: 'joao@example.com',
-          event_name: 'Tech Summit 2026'
-        },
-        {
-          id: 'def456',
-          customer_name: 'Maria Santos',
-          customer_email: 'maria@example.com',
-          event_name: 'Tech Summit 2026'
-        }
-      ]
-    };
-
-    return of(mockResponse).pipe(delay(800));
+    return of(mockResponse).pipe(delay(500)); // Simula latência de 500ms
   }
 }
