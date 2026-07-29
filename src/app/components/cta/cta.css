@@ -1,0 +1,101 @@
+.cta {
+  background: white;
+  padding: 0 2rem 2rem 1rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cta-content {
+  background: #00DBFF;
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.cta-text {
+  flex: 1;
+}
+
+.cta-text h2 {
+  margin: 0 0 1rem 0;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #000;
+  line-height: 1.3;
+}
+
+.cta-text p {
+  margin: 0;
+  font-size: 1rem;
+  color: #000;
+  line-height: 1.6;
+}
+
+.cta-action {
+  flex-shrink: 0;
+}
+
+.btn-cta {
+  display: inline-block;
+  background: #020B12;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-cta:hover {
+  background: #0a1a2a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(2, 11, 18, 0.3);
+}
+
+.btn-cta:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 968px) {
+  .cta-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+    padding: 2.5rem;
+  }
+
+  .cta-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .cta-text p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .cta {
+    padding: 3rem 1rem;
+  }
+
+  .cta-content {
+    padding: 2rem;
+  }
+
+  .cta-text h2 {
+    font-size: 1.375rem;
+  }
+
+  .btn-cta {
+    padding: 0.875rem 1.75rem;
+    font-size: 0.95rem;
+  }
+}

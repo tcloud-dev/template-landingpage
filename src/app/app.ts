@@ -4,11 +4,12 @@ import { Hero } from './components/hero/hero';
 import { Reasons } from './components/reasons/reasons';
 import { Schedule } from './components/schedule/schedule';
 import { Faq } from './components/faq/faq';
+import { Cta } from './components/cta/cta';
 import { Footer } from './components/footer/footer';
 
 @Component({
   selector: 'app-root',
-  imports: [Header, Hero, Reasons, Schedule, Faq, Footer],
+  imports: [Header, Hero, Reasons, Schedule, Faq, Cta, Footer],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
