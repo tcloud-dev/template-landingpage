@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CxFormMockService } from '../../services/cx-form-mock.service';
@@ -24,14 +24,13 @@ export class RegistrationForm implements OnInit {
   };
 
   registrationForm!: FormGroup;
-  submitted = false;
-  error = '';
-  isSubmitting = false;
+  submitted = signal(false);
+  error = signal('');
+  isSubmitting = signal(false);
 
   constructor(
     private fb: FormBuilder,
-    private cxFormMockService: CxFormMockService,
-    private cdr: ChangeDetectorRef
+    private cxFormMockService: CxFormMockService
     // private cxFormService: CxFormService // Descomentar quando API estiver pronta
   ) {}
 
@@ -106,13 +105,13 @@ export class RegistrationForm implements OnInit {
       this.registrationForm.get(key)?.markAsTouched();
     });
 
-    if (this.registrationForm.invalid || this.isSubmitting) {
+    if (this.registrationForm.invalid || this.isSubmitting()) {
       console.log('⚠️ Formulário inválido', this.registrationForm.errors);
       return;
     }
 
-    this.isSubmitting = true;
-    this.error = '';
+    this.isSubmitting.set(true);
+    this.error.set('');
 
     const formValue = this.registrationForm.value;
 
@@ -137,26 +136,20 @@ export class RegistrationForm implements OnInit {
     // Usando MOCK para testes
     this.cxFormMockService.createForm(apiPayload).subscribe({
       next: (response) => {
-        console.log('✅ Inscrição realizada:', response);
-        console.log('🎉 Setando submitted = true');
-        this.submitted = true;
-        this.isSubmitting = false;
-        this.cdr.detectChanges(); // Força detecção de mudanças
-        console.log('📊 Estado atual - submitted:', this.submitted, 'isSubmitting:', this.isSubmitting);
+        console.log('✅ Inscrição realizada com sucesso!');
+        this.submitted.set(true);
+        this.isSubmitting.set(false);
 
-        // Reseta formulário após 3 segundos
+        // Reset automático após 5 segundos
         setTimeout(() => {
-          console.log('⏱️ Resetando formulário após 3 segundos');
-          this.submitted = false;
+          this.submitted.set(false);
           this.registrationForm.reset();
-          this.cdr.detectChanges();
-        }, 3000);
+        }, 5000);
       },
       error: (err) => {
         console.error('❌ Erro na inscrição:', err);
-        this.error = err.error?.message || 'Erro ao processar inscrição. Tente novamente.';
-        this.isSubmitting = false;
-        this.cdr.detectChanges();
+        this.error.set(err.error?.message || 'Erro ao processar inscrição. Tente novamente.');
+        this.isSubmitting.set(false);
       }
     });
 
@@ -165,6 +158,6 @@ export class RegistrationForm implements OnInit {
   }
 
   clearError(): void {
-    this.error = '';
+    this.error.set('');
   }
 }

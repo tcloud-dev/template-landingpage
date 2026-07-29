@@ -2,15 +2,15 @@
   <div class="container">
     <h2 class="section-title">Inscreva-se no Evento</h2>
 
-    @if (submitted) {
+    @if (submitted()) {
       <div class="success-message">
         <h3>✓ Inscrição realizada com sucesso!</h3>
         <p>Você receberá um e-mail de confirmação em breve.</p>
       </div>
-    } @else if (error) {
+    } @else if (error()) {
       <div class="error-message">
         <h3>✗ Erro ao realizar inscrição</h3>
-        <p>{{ error }}</p>
+        <p>{{ error() }}</p>
         <button type="button" class="retry-button" (click)="clearError()">Tentar Novamente</button>
       </div>
     } @else {
@@ -104,9 +104,9 @@
         <button
           type="submit"
           class="submit-button"
-          [disabled]="registrationForm.invalid || isSubmitting"
+          [disabled]="registrationForm.invalid || isSubmitting()"
         >
-          {{ isSubmitting ? 'Enviando...' : 'Confirmar Inscrição' }}
+          {{ isSubmitting() ? 'Enviando...' : 'Confirmar Inscrição' }}
         </button>
       </form>
     }
