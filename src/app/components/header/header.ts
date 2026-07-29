@@ -12,6 +12,6 @@ export class Header {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     // Ativa após rolar a altura completa do hero (100vh) + 100px
-    this.isScrolled = window.scrollY > window.innerHeight + 120;
+    this.isScrolled = window.scrollY > window.innerHeight;
   }
 }

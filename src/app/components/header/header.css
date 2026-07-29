@@ -10,6 +10,8 @@
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
+  height: 100px;
+  max-height: 100px;
 }
 
 .header.scrolled {
@@ -21,7 +23,7 @@
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
