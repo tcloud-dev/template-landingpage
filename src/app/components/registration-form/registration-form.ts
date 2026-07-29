@@ -39,11 +39,12 @@ export class RegistrationForm implements OnInit {
     this.registrationForm = this.fb.group({
       nomeCompleto: ['', [
         Validators.required,
-        Validators.maxLength(40),
+        Validators.maxLength(30),
         FormValidators.nomeCompleto
       ]],
       email: ['', [
         Validators.required,
+        Validators.maxLength(30),
         FormValidators.emailComDominio
       ]],
       telefone: ['', [
@@ -56,7 +57,7 @@ export class RegistrationForm implements OnInit {
       ]],
       empresa: ['', [
         Validators.required,
-        Validators.maxLength(60)
+        Validators.maxLength(30)
       ]]
     });
   }
