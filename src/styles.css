@@ -1,5 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
 
+ /* ============================================ */
+/* TOTVS Font Family - Multiple Weights */
+/* ============================================ */
+@font-face {
+    font-family: 'TOTVS';
+    src: url('https://ateleia-email.s3-sa-east-1.amazonaws.com/public/assets/fonts/TOTVS-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TOTVS';
+    src: url('https://ateleia-email.s3-sa-east-1.amazonaws.com/public/assets/fonts/TOTVS-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TOTVS';
+    src: url('https://ateleia-email.s3-sa-east-1.amazonaws.com/public/assets/fonts/TOTVS-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TOTVS';
+    src: url('https://ateleia-email.s3-sa-east-1.amazonaws.com/public/assets/fonts/TOTVS-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TOTVS';
+    src: url('https://ateleia-email.s3-sa-east-1.amazonaws.com/public/assets/fonts/TOTVS-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TOTVS';
+    src: url('https://ateleia-email.s3-sa-east-1.amazonaws.com/public/assets/fonts/TOTVS-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +62,7 @@ html {
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'TOTVS', Arial, Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   color: #333;
   overflow-x: hidden;
