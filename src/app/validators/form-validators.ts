@@ -154,9 +154,9 @@ export class FormValidators {
     }
 
     // Verifica tamanho mínimo de cada palavra
-    const temPalavraMuitoCurta = palavras.some((p: string) => p.length < 2);
+    const temPalavraMuitoCurta = palavras.some((p: string) => p.length < 3);
     if (temPalavraMuitoCurta) {
-      return { nomeInvalido: { message: 'Nome e sobrenome devem ter pelo menos 2 letras' } };
+      return { nomeInvalido: { message: 'Nome e sobrenome devem ter pelo menos 3 letras' } };
     }
 
     return null; // Nome válido
