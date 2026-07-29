@@ -61,9 +61,29 @@ textarea:focus {
   border-color: #667eea;
 }
 
+input.invalid {
+  border-color: #f44336;
+}
+
 input::placeholder,
 textarea::placeholder {
   color: #999;
+}
+
+.error-text {
+  display: block;
+  color: #f44336;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  font-weight: 500;
+}
+
+.hint-text {
+  display: block;
+  color: #999;
+  font-size: 0.813rem;
+  margin-top: 0.25rem;
+  font-style: italic;
 }
 
 textarea {
