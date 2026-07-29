@@ -17,47 +17,46 @@ export class Faq {
   faqItems: FaqItem[] = [
     {
       question: 'O evento é gratuito?',
-      answer: 'Sim, o evento é totalmente gratuito. Basta fazer sua inscrição através do formulário disponível nesta página.',
+      answer: 'Sim. O T-Cloud + IA: Customer Day é um evento presencial 100% gratuito e exclusivo para clientes convidados.',
       isOpen: false
     },
     {
-      question: 'Preciso levar notebook?',
-      answer: 'Não é obrigatório, mas recomendamos para acompanhar melhor as apresentações práticas.',
+      question: 'Onde e quando acontece?',
+      answer: 'No dia 26 de agosto, das 08h30 às 17h30, na Matriz da TOTVS em São Paulo (Av. Braz Leme, 1000 - Santana).',
       isOpen: false
     },
     {
-      question: 'Haverá certificado de participação?',
-      answer: 'Sim, todos os participantes receberão certificado digital de participação ao final do evento.',
+      question: 'Posso levar acompanhantes da minha empresa?',
+      answer: 'Sim. No entanto, por motivos de segurança e liberação na portaria, cada participante deve preencher sua própria inscrição individualmente.',
       isOpen: false
     },
     {
-      question: 'Qual o dress code do evento?',
-      answer: 'O evento é business casual. Recomendamos roupas confortáveis e profissionais.',
+      question: 'Haverá alimentação no local?',
+      answer: 'Sim! A programação inclui Welcome Coffee, Coffee Breaks, Almoço Executivo VIP e Coquetel de encerramento, todos inclusos sem custo.',
       isOpen: false
     },
     {
-      question: 'Haverá estacionamento disponível?',
-      answer: 'Sim, o Centro de Convenções TCloud possui estacionamento gratuito para participantes.',
+      question: 'O local possui estacionamento?',
+      answer: 'Sim, a sede da TOTVS conta com serviço de estacionamento pago no local (sujeito à lotação).',
       isOpen: false
     },
     {
-      question: 'Posso levar acompanhante?',
-      answer: 'O acompanhante também precisa fazer inscrição prévia através do formulário.',
-      isOpen: false
-    },
-    {
-      question: 'O almoço está incluso?',
-      answer: 'Sim, o almoço e coffee breaks estão inclusos na programação do evento.',
-      isOpen: false
-    },
-    {
-      question: 'Posso cancelar minha inscrição?',
-      answer: 'Sim, você pode cancelar sua inscrição até 48 horas antes do evento entrando em contato conosco.',
+      question: 'Qual é o dress code recomendado?',
+      answer: 'Recomendamos o traje Empresarial Casual (Business Casual).',
       isOpen: false
     }
   ];
 
   toggleFaq(index: number): void {
-    this.faqItems[index].isOpen = !this.faqItems[index].isOpen;
+    const isCurrentlyOpen = this.faqItems[index].isOpen;
+
+    // Fecha todas as perguntas
+    this.faqItems.forEach(item => item.isOpen = false);
+
+    // Se a pergunta clicada estava fechada, abre ela
+    // Se estava aberta, deixa fechada (todas foram fechadas acima)
+    if (!isCurrentlyOpen) {
+      this.faqItems[index].isOpen = true;
+    }
   }
 }

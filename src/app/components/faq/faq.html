@@ -1,18 +1,30 @@
 <section id="faq" class="faq">
   <div class="container">
-    <h2 class="section-title">Perguntas Frequentes</h2>
+    <div class="faq-header">
+      <span class="badge">Tire suas dúvidas</span>
+      <h2 class="section-title">Perguntas frequentes</h2>
+      <p class="section-subtitle">12 momentos entre keynotes, sessões técnicas e pausas para conexão do credenciamento ao coquetel de encerramento.</p>
+    </div>
     <div class="faq-list">
       @for (item of faqItems; track $index) {
         <div class="faq-item" [class.open]="item.isOpen">
           <button class="faq-question" (click)="toggleFaq($index)">
             <span>{{ item.question }}</span>
-            <span class="icon">{{ item.isOpen ? '−' : '+' }}</span>
+            <span class="icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                @if (item.isOpen) {
+                  <path d="M5 15L12 8L19 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                } @else {
+                  <path d="M19 9L12 16L5 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                }
+              </svg>
+            </span>
           </button>
-          @if (item.isOpen) {
-            <div class="faq-answer">
+          <div class="faq-answer">
+            <div class="faq-answer-content">
               <p>{{ item.answer }}</p>
             </div>
-          }
+          </div>
         </div>
       }
     </div>
