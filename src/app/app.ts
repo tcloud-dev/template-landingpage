@@ -1,13 +1,14 @@
 import { Component, signal } from '@angular/core';
 import { Header } from './components/header/header';
 import { Hero } from './components/hero/hero';
+import { Reasons } from './components/reasons/reasons';
 import { Schedule } from './components/schedule/schedule';
 import { Faq } from './components/faq/faq';
 import { Footer } from './components/footer/footer';
 
 @Component({
   selector: 'app-root',
-  imports: [Header, Hero, Schedule, Faq, Footer],
+  imports: [Header, Hero, Reasons, Schedule, Faq, Footer],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
